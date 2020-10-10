@@ -750,6 +750,7 @@ export interface ProductDetails {
 }
 
 export interface ProductDetailsVariables {
-  id: string;
+  id?: string | null;
+  slug?: string | null;
   countryCode?: CountryCode | null;
 }
