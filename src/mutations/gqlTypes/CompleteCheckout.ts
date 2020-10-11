@@ -526,17 +526,9 @@ export interface CompleteCheckout_checkoutComplete {
   __typename: "CheckoutComplete";
   errors: CompleteCheckout_checkoutComplete_errors[];
   /**
-   * Placed order.
-   */
-  order: CompleteCheckout_checkoutComplete_order | null;
-  /**
    * Set to true if payment needs to be confirmed before checkout is complete.
    */
   confirmationNeeded: boolean;
-  /**
-   * Confirmation data used to process additional authorization steps.
-   */
-  confirmationData: any | null;
 }
 
 export interface CompleteCheckout {
@@ -552,7 +544,6 @@ export interface CompleteCheckout {
 
 export interface CompleteCheckoutVariables {
   checkoutId: string;
-  paymentData?: any | null;
   redirectUrl?: string | null;
   storeSource?: boolean | null;
 }

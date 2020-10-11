@@ -871,13 +871,10 @@ export class ApolloClientManager {
 
   completeCheckout = async ({
     checkoutId,
-    paymentData,
     redirectUrl,
     storeSource,
   }: CompleteCheckoutInput) => {
     try {
-      const paymentDataString = paymentData && JSON.stringify(paymentData);
-
       const { data, errors } = await this.client.mutate<
         CompleteCheckout,
         CompleteCheckoutVariables
@@ -885,7 +882,6 @@ export class ApolloClientManager {
         mutation: CheckoutMutations.completeCheckoutMutation,
         variables: {
           checkoutId,
-          paymentData: paymentDataString,
           redirectUrl,
           storeSource,
         },

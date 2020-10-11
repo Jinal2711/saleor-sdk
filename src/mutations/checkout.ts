@@ -2,7 +2,6 @@ import gql from "graphql-tag";
 
 import { checkoutFragment } from "../fragments/checkout";
 import { paymentFragment } from "../fragments/payment";
-import { orderDetailFragment } from "../fragments/order";
 import {
   checkoutErrorFragment,
   paymentErrorFragment,
@@ -195,7 +194,6 @@ export const createCheckoutPaymentMutation = gql`
 `;
 
 export const completeCheckoutMutation = gql`
-  ${orderDetailFragment}
   ${checkoutErrorFragment}
   mutation CompleteCheckout(
     $checkoutId: ID!
@@ -205,7 +203,6 @@ export const completeCheckoutMutation = gql`
   ) {
     checkoutComplete(
       checkoutId: $checkoutId
-      paymentData: $paymentData
       redirectUrl: $redirectUrl
       storeSource: $storeSource
     ) {
@@ -216,7 +213,6 @@ export const completeCheckoutMutation = gql`
         ...OrderDetail
       }
       confirmationNeeded
-      confirmationData
     }
   }
 `;
