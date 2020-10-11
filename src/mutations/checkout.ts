@@ -212,9 +212,6 @@ export const completeCheckoutMutation = gql`
       errors: checkoutErrors {
         ...CheckoutError
       }
-      order {
-        ...OrderDetail
-      }
       confirmationNeeded
       confirmationData
     }
